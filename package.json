@@ -1,7 +1,7 @@
 {
-    "name": "@lyliya/homebridge-ledstrip-ble",
-    "version": "1.4.5",
-    "displayName": "Homebridge Ledstrip BLE",
+    "name": "@bjclopes/homebridge-ledstrip-bledom",
+    "version": "1.0.0",
+    "displayName": "Homebridge Ledstrip BLEDOM",
     "description": "",
     "main": "index.js",
     "dependencies": {
@@ -20,12 +20,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Lyliya/homebridge-ledstrip-ble.git"
+        "url": "git+https://github.com/bjclopes/homebridge-ledstrip-bledom.git"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/Lyliya/homebridge-ledstrip-ble/issues"
+        "url": "https://github.com/bjclopes/homebridge-ledstrip-bledom/issues"
     },
-    "homepage": "https://github.com/Lyliya/homebridge-ledstrip-ble#readme"
+    "homepage": "https://github.com/bjclopes/homebridge-ledstrip-bledom#readme"
 }
