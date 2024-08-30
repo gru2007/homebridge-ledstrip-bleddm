@@ -105,7 +105,7 @@ module.exports = class Device {
       this.write.write(buffer, true, (err) => {
         if (err) console.log("Error:", err);
         this.power = status;
-        this.disconnect();
+        this.debounceDisconnect();
       });
     }
   }
