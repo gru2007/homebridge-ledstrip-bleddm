@@ -74,6 +74,7 @@ module.exports = class Device {
     const { characteristics } =
       await this.peripheral.discoverSomeServicesAndCharacteristicsAsync(
         ["fff0"],
+	["fff4"],
         ["fff3"]
       );
     this.write = characteristics[0];
@@ -97,6 +98,7 @@ module.exports = class Device {
   async set_power(status) {
     if (!this.connected) await this.connectAndGetWriteCharacteristics();
     if (this.write) {
+	//    7e0404 01 00 01 ff00ef
       const buffer = Buffer.from(
         `7e0404${status ? "01" : "00"}00${status ? "01" : "00"}ff00ef`,
         "hex"
@@ -115,6 +117,7 @@ module.exports = class Device {
     if (!this.connected) await this.connectAndGetWriteCharacteristics();
     if (this.write) {
       const level_hex = ("0" + level.toString(16)).slice(-2);
+	  //   7e0401 64 ffffff00ef
       const buffer = Buffer.from(`7e0401${level_hex}ffffff00ef`, "hex");
       log(buffer);
       this.write.write(buffer, true, (err) => {
@@ -131,6 +134,7 @@ module.exports = class Device {
       const rhex = ("0" + r.toString(16)).slice(-2);
       const ghex = ("0" + g.toString(16)).slice(-2);
       const bhex = ("0" + b.toString(16)).slice(-2);
+	  //   7e070503 00 b7 ff 10ef
       const buffer = Buffer.from(`7e070503${rhex}${ghex}${bhex}10ef`, "hex");
       log(buffer);
       this.write.write(buffer, true, (err) => {
